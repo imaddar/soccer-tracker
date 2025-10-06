@@ -15,6 +15,9 @@ data/
 *.bmp
 *.gif
 *.mp4
+*.avi
+*.mov
+*.mkv
 
 # Label files
 *.txt
