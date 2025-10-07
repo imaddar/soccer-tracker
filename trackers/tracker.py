@@ -95,7 +95,7 @@ class Tracker:
             center=(x_center, y2),
             axes=(int(width), int(width * 0.35)),
             angle=0.0,
-            startAngle=45,
+            startAngle=-45,
             endAngle=235,
             color=color,
             thickness=2,
@@ -161,7 +161,7 @@ class Tracker:
                 
             # Draw Referees
             for _, referee in referee_dict.items():
-                frame = self.draw_ellipse(frame, referee["bbox"], (0,255,255), track_id)
+                frame = self.draw_ellipse(frame, referee["bbox"], (0,255,255))
                 
             # Draw Ball
             for _, ball in ball_dict.items():

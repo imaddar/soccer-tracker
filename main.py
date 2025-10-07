@@ -1,9 +1,10 @@
 from utils.init import read_video, save_video
 from trackers.init import Tracker
-
+import cv2
 def main():
     # read video
     video_frames = read_video("input_videos/08fd33_4.mp4")
+    
     
     # initalize tracker
     tracker = Tracker('models/best.pt')
@@ -12,6 +13,7 @@ def main():
                                        read_from_stub=True,
                                        stub_path='stubs/tracks_stub.pkl')
 
+    
     # draw output
     ## draw object tracks
     output_video_frames = tracker.draw_annotations(video_frames, tracks)
