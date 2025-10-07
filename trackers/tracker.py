@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 import sys
 sys.path.append('../')
-from utils.init import get_center_of_bbox, get_bbox_width
+from utils import get_center_of_bbox, get_bbox_width
 
 class Tracker:
     def __init__(self, model_path):
@@ -173,6 +173,9 @@ class Tracker:
             for track_id, player in player_dict.items():
                 color = player.get("team_color", (0,0,255))
                 frame = self.draw_ellipse(frame, player["bbox"], color, track_id)
+                
+                if player.get("has_ball", False):
+                    frame = self.draw_triangle(frame, player["bbox"], (0,0,255))
                 
             # Draw Referees
             for _, referee in referee_dict.items():

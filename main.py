@@ -1,6 +1,7 @@
-from utils.init import read_video, save_video
-from trackers.init import Tracker
-from team_assigner.init import TeamAssigner
+from utils import read_video, save_video
+from trackers import Tracker
+from team_assigner import TeamAssigner
+from player_ball_assigner import PlayerBallAssigner
 import cv2
 def main():
     # read video
@@ -28,7 +29,15 @@ def main():
             tracks["players"][frame_num][player_id]["team"] = team
             tracks["players"][frame_num][player_id]["team_color"] = team_assigner.team_colors[team]
             
-            
+    
+    # Assign Ball Aquistion
+    player_assigner = PlayerBallAssigner()
+    for frame_num, player_track in enumerate(tracks["players"]):
+        ball_bbox = tracks["ball"][frame_num][1]['bbox']
+        assigned_player = player_assigner.assign_ball_to_player(player_track, ball_bbox)
+        
+        if assigned_player != -1:
+            tracks["players"][frame_num][assigned_player]["has_ball"] = True
     
     # draw output
     ## draw object tracks
