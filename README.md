@@ -138,16 +138,6 @@ Training configuration:
 - Uses optical flow to detect camera movement
 - Adjusts player positions for accurate tracking
 
-## Configuration
-
-### Video Settings
-- Default frame rate: 24 FPS
-- Output format: AVI (XVID codec)
-
-### Tracking Parameters
-- Speed calculation window: 5 frames
-- Minimum camera movement threshold: 5 pixels
-
 ## Output
 
 The system generates:
@@ -177,20 +167,3 @@ The system generates:
 - Use shorter video clips for testing
 - Cache results using stub files
 - Ensure adequate GPU memory for large videos
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-## License
-
-This project uses a dataset licensed under CC BY 4.0 from Roboflow.
-
-## Acknowledgments
-
-- Roboflow for the football players detection dataset
-- Ultralytics for YOLOv5 implementation
-- OpenCV community for computer vision tools
